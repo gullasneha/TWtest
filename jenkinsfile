@@ -40,5 +40,33 @@ node('master){
                        				sh "serve.py"
 						}
                      }
+	stage('dockerimage') {
+		steps {
+			dir('docker') {
+				sh...
+				cp -R . ../build
+				docker build -f dockerfile.newsfeed -t gullasneha/newsfeed
+				docker build -f dockerfile.quota -t gullasneha/quota
+				docker build -f dockerfile.frontend -t gullasneha/frontend
+				docker login https://hub.docker.com/repository/docker/gullasneha/gullasneha -u gullasneha -p password
+				docker push gullasneha/newsfeed
+				docker push gullasneha/quota
+				docker push gullasneha/gullasneha
+				...
+					}
+			}
 		}
-                
+		stage("frontend UI") {
+            				
+            steps {
+                 dir('docker') {
+                sh '''             
+                  docker-compose config
+		  docker-compose up -d
+                '''
+                 }
+            }
+	}
+}
+		
+		
