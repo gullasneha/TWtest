@@ -2,10 +2,10 @@ FROM openjdk:8
 FROM clojure:latest
 COPY . /usr/bin/
 WORKDIR /usr/bin
-ENV APP_PORT=8080
+ENV APP_PORT=9091
 ENV STATIC_URL=http://localhost:8000
-ENV QUOTE_SERVICE_URL=http://quotes:8001
-ENV NEWSFEED_SERVICE_URL=http://newsfeed:8002
+ENV QUOTE_SERVICE_URL=http://quotes:8081
+ENV NEWSFEED_SERVICE_URL=http://newsfeed:8082
 ENV NEWSFEED_SERVICE_TOKEN=T1&eWbYXNWG1w1^YGKDPxAWJ@^et^&kX
 EXPOSE 8080
 CMD ["java", "-jar", "build/front-end.jar"]
