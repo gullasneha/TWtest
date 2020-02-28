@@ -11,11 +11,12 @@ yum install java
 yum install make
 yum install phyton36
 to install lein( use the lein script). copy it to $PATH and run.
+create docker
 yum install jenkins
 - access jenkins in UI
 - configure the global variables in manage jenkins
 - install the git plugin, Docker plugin, Docker Compose Build Step plugin,
-- create 2 jobs (provide script path for 1 as jenkinsfile and for other as docker/jenkinsfile
-run 1st jenkins file to create the jar files
-cd to /build and create 3 docker file for newsfeed,quota and front end.
-run other jenkinsfile to create docker image and docker compose.
+- create jenkinsfile.
+- run jenkins job to create the jar files then the docker image and then the containers.
+
+
