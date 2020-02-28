@@ -70,15 +70,15 @@ resource "aws_security_group" "TWSG" {
  name          = "TWSG"
   vpc_id = aws_vpc.twVPC.id
   ingress {
-           from_port      = 8000
-           to_port        = 8000
+           from_port      = 8081
+           to_port        = 8081
            protocol       = "tcp"
 	   cidr_blocks = ["0.0.0.0/0"]
            
           }
     ingress {
-           from_port      = 8080
-           to_port        = 8080
+           from_port      = 8082
+           to_port        = 8082
            protocol       = "tcp"
 	   cidr_blocks = ["0.0.0.0/0"]
           }
@@ -89,8 +89,14 @@ resource "aws_security_group" "TWSG" {
       cidr_blocks = ["0.0.0.0/0"]
     }
   ingress {
-    from_port             = 80
-    to_port               = 80
+    from_port             = 8080
+    to_port               = 8080
+    protocol              = "tcp"
+    cidr_blocks           = ["0.0.0.0/0"]
+  }
+	ingress {
+    from_port             = 9091
+    to_port               = 9091
     protocol              = "tcp"
     cidr_blocks           = ["0.0.0.0/0"]
   }
@@ -112,9 +118,9 @@ module "ec2_cluster" {
   ami                    = "ami-01c94064639c71719"
   instance_type          = "t2.micro"
   instance 		 = 2
-name = "twec2"
+  name                   = "twec2"
   
-   vpc_security_group_ids = ["sg-0ec878d53f19307a3"]
+  vpc_security_group_ids = ["sg-0ec878d53f19307a3"]
   subnet_id              = "subnet-0754c0403c263f982"
 
   tags = {
