@@ -9,6 +9,7 @@ create and login to linux instance.
 sudo su -
 yum install java
 yum install make
+yum install phyton36
 yum install docker
 to install lein( use the lein script). copy it to $PATH and run.
 cd to /build and create 3 docker file for newsfeed,quota and front end.
