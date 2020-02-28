@@ -2,6 +2,6 @@ FROM openjdk:8
 FROM clojure:latest
 COPY . /usr/bin/
 WORKDIR /usr/bin
-ENV APP_PORT=8002
-EXPOSE 8002
+ENV APP_PORT=8022
+EXPOSE 8082
 CMD ["java", "-jar", "build/newsfeed.jar"]
