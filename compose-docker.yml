@@ -1,0 +1,27 @@
+front-end:
+  container_name: front-end
+  image: gullasneha/front-end:1
+  ports:
+    - "9091:9091"
+  links:
+    - quotes:quotes
+    - newsfeed:newsfeed
+  environment:
+    APP_PORT: 9091
+    STATIC_URL: http://localhost:8080
+    QUOTE_SERVICE_URL: http://quotes:8081
+    NEWSFEED_SERVICE_URL: http://newsfeed:8082
+    NEWSFEED_SERVICE_TOKEN: T1&eWbYXNWG1w1^YGKDPxAWJ@^et^&kX
+  net: local_network
+quotes:
+  container_name: quotes
+  image: gullasneha/quotes:1
+  ports:
+  - "8081:8081"
+  net: local_network  
+newsfeed:
+  container_name: newsfeed
+  image: gullasneha/newsfeed:1
+  ports:
+  - "8082:8082"
+  net: local_network
