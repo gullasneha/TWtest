@@ -1,4 +1,8 @@
 create aws environment using terraform.
+- install terraform on desktop machine
+- run terraform init
+- run terraform plan
+- run terraform apply
 create and login to linux instance.
 sudo su -
 yum install java
