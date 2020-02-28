@@ -1,0 +1,7 @@
+create aws environment using terraform.
+create and login to linux instance.
+sudo su -
+yum install java
+yum install make
+yum install docker
+to install lein( use the lein script)
