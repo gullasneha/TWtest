@@ -1,0 +1,5 @@
+FROM openjdk:8
+COPY . /usr/bin/
+WORKDIR /usr/bin
+EXPOSE 9091
+CMD ["java", "-jar", "build/front-end.jar"]
