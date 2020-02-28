@@ -1,0 +1,5 @@
+FROM openjdk:8
+COPY . /usr/bin/
+WORKDIR /usr/bin
+EXPOSE 8082
+CMD ["java", "-jar", "build/newsfeed.jar"]
